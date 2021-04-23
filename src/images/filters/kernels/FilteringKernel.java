@@ -3,6 +3,7 @@ package images.filters.kernels;
 import images.Image;
 import images.Pixel;
 import images.PixelImpl;
+import images.utils.ImageUtilities;
 
 public class FilteringKernel extends AbstractKernel {
   private static final double[][] BLUR_WEIGHTS = {
@@ -55,7 +56,7 @@ public class FilteringKernel extends AbstractKernel {
         blueResult += pixel.getBlue() * weights[i][j];
       }
     }
-    return new PixelImpl(redResult, greenResult, blueResult);
+    return new PixelImpl(ImageUtilities.clamp(redResult), ImageUtilities.clamp(greenResult), ImageUtilities.clamp(blueResult));
   }
 
 }

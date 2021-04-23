@@ -3,6 +3,7 @@ package images.filters.kernels;
 import images.PixelImpl;
 import images.Image;
 import images.Pixel;
+import images.utils.ImageUtilities;
 
 public class ColorTransformationKernel extends AbstractKernel {
   private static final double[][] GREY_SCALE_WEIGHT = {
@@ -51,11 +52,11 @@ public class ColorTransformationKernel extends AbstractKernel {
     int[] newRGB = {0, 0, 0};
 
     for (int i = 0; i < weights.length; i++) {
-      for (int j = 0; j < weights[0].length; i++) {
+      for (int j = 0; j < weights[0].length; j++) {
         newRGB[i] += weights[i][j] * oldRGB[j];
       }
     }
-    return new PixelImpl(newRGB[0], newRGB[1], newRGB[2]);
+    return new PixelImpl(ImageUtilities.clamp(newRGB[0]), ImageUtilities.clamp(newRGB[1]), ImageUtilities.clamp(newRGB[2]));
   }
 
 }

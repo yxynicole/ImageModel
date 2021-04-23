@@ -2,8 +2,6 @@ package images;
 
 import java.util.Optional;
 
-import utils.ImageUtilities;
-
 /**
  * An implementation of image interface.
  */

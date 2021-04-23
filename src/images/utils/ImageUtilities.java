@@ -1,4 +1,4 @@
-package utils;
+package images.utils;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -12,6 +12,13 @@ import javax.imageio.ImageIO;
  * Image utility class that has methods to read an image from file and write to a file.
  */
 public class ImageUtilities {
+  private static final int CLAMPING_MIN = 0;
+  private static final int CLAMPING_MAX = 255;
+
+  public static int clamp(int value){
+    return Math.max(CLAMPING_MIN, Math.min(CLAMPING_MAX,value));
+  }
+
   /**
    * An enumeration of the different channels in our images.
    */

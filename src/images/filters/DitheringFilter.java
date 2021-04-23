@@ -1,4 +1,4 @@
-package images.filters.kernels;
+package images.filters;
 
 import images.Image;
 import images.ImageImpl;
