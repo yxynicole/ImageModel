@@ -1,5 +1,7 @@
 package images.filters.kernels;
 
+import java.util.Objects;
+
 import images.Image;
 import images.PixelImpl;
 import images.Pixel;
@@ -27,6 +29,7 @@ public abstract class AbstractKernel implements Kernel {
    */
 
   Pixel getPixelAt(Image image, int x, int y) {
+    Objects.requireNonNull(image);
     return image.getElementAt(x, y).orElse(defaultPixel);
   }
 }

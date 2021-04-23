@@ -5,6 +5,7 @@ import images.filters.Filter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Helper class to collect the filters and apply them to the image all at once.
@@ -24,6 +25,7 @@ public class Filters {
      * @return
      */
     public FiltersBuilder add(Filter filter){
+      Objects.requireNonNull(filter);
       filters.add(filter);
       return this;
     }

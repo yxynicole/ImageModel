@@ -1,5 +1,7 @@
 package images.filters;
 
+import java.util.Objects;
+
 import images.ImageImpl;
 import images.Image;
 import images.filters.kernels.Kernel;
@@ -19,11 +21,13 @@ public class KernelFilter implements Filter {
    * @param kernel Kernel object which will be applied to the pixels.
    */
   public KernelFilter(Kernel kernel) {
+    Objects.requireNonNull(kernel);
     this.kernel = kernel;
   }
 
   @Override
   public Image apply(Image originalImage) {
+    Objects.requireNonNull(originalImage);
     int height = originalImage.getHeight();
     int width = originalImage.getWidth();
 

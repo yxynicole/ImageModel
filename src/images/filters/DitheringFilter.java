@@ -6,6 +6,7 @@ import images.filters.Filter;
 import images.Pixel;
 import images.PixelImpl;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -47,6 +48,7 @@ public class DitheringFilter implements Filter {
 
   @Override
   public Image apply(Image originalImage) {
+    Objects.requireNonNull(originalImage);
     double[][][] values = new double [originalImage.getHeight()][originalImage.getWidth()][3];
     for(int i = 0; i < values.length; i++){
       for(int j = 0; j <values[0].length; j++){

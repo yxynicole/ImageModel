@@ -1,5 +1,7 @@
 package images.filters;
 
+import java.util.Objects;
+
 import images.Image;
 import images.ImageImpl;
 import images.Pixel;
@@ -18,7 +20,7 @@ public class ClampFilter implements Filter {
 
   @Override
   public Image apply(Image originalImage) {
-
+    Objects.requireNonNull(originalImage);
     Pixel[][] result = new Pixel[originalImage.getHeight()][originalImage.getWidth()];
 
     for (int row = 0; row < originalImage.getHeight(); row++){
